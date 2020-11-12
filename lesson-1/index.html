@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="index.css">
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div class="lesson1" id="lesson">
+            <div id="img" v-bind:class="{isbort:ended}"></div>
+            <div class="jdt_big">
+                <div class="jdt" :style="{width:jd+'%'}"></div>
+            </div>
+            <div class="btn">
+                <button @click="jindujian">敲</button>
+                <button @click="restart">重新开始</button>
+            </div>
+        </div>
+        <script>
+            new Vue({
+                el: '#lesson',
+                data:{
+                    jd:100,
+                    ended:false
+                },
+                methods:{
+                    jindujian(){
+                        this.jd-=10
+                        if(this.jd<=0){
+                            this.ended = true
+                        }
+                    },
+                    restart(){
+                        this.ended = false
+                        this.jd = 100
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>
